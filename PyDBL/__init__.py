@@ -1,3 +1,4 @@
+import json
 import requests
 import aiohttp
 
@@ -35,7 +36,7 @@ class DiscordBotsList:
     async def postServerCount(self, id: int , bot):
         """Get reviews for your bot in json format"""
         h = {"authorization": self.apikey , "content-type" : "application/json"}
-        b = "{serverCount: int(len(bot.guilds))}"
+        b = json.dumps({"serverCount": int(len(bot.guilds))}, separators=(',', ':'))
         """async with aiohttp.ClientSession() as session:
             async with session.get(f"https://api.discordbotslist.co/v1/public/bot/{id}/stats", headers=h , body=b) as res:
                 text = await res.text()

@@ -10,7 +10,7 @@ bot = commands.Bot(command_prefix="!")
 @bot.event
 async def on_ready():
     print("Ready!")
-    await api.postServerCount(id, bot)
+    await api.postServerCount(819278413038485514, bot)
     print("Posted server cont")
     print(len(bot.guilds))
 
